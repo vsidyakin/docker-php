@@ -1,7 +1,7 @@
 FROM vsyd/php:latest
 
 ARG PHP_VERSION=7.4
-
+ENV PATH /usr/local/rvm/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
 RUN apt-get update && \
     DEBIAN_FRONTEND=noninteractive apt-get install -y \
         php${PHP_VERSION} \
@@ -26,8 +26,8 @@ RUN apt-get update && \
 
 ARG COMPOSER_VERSION=2
 
-RUN curl -sL https://getcomposer.org/composer-${COMPOSER_VERSION}.phar -o /usr/local/bin/composer && \
-    chmod +x /usr/local/bin/composer
+#RUN /usr/bin/curl -sL https://getcomposer.org/composer-${COMPOSER_VERSION}.phar -o /usr/local/bin/composer && \
+ #   chmod +x /usr/local/bin/composer
 
 ENV PHP_VERSION=${PHP_VERSION}
 ENV FPM_ACCESS_LOG=false
