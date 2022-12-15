@@ -1,0 +1,291 @@
+[PHP]
+display_errors = {{ default .Env.PHP_DISPLAY_ERRORS "Off" }}
+display_startup_errors = {{ default .Env.PHP_DISPLAY_STARTUP_ERRORS "Off" }}
+error_reporting = {{ default .Env.PHP_ERROR_REPORTING "E_ALL & ~E_DEPRECATED & ~E_STRICT" }}
+html_errors = {{ default .Env.PHP_HTML_ERRORS "On" }}
+log_errors = {{ default .Env.PHP_LOG_ERRORS "On" }}
+max_input_time = {{ default .Env.PHP_MAX_INPUT_TIME "-1" }}
+
+;   Development Value: 4096
+;   Production Value: 4096
+output_buffering = {{ default .Env.PHP_OUTPUT_BUFFERING "Off" }}
+
+register_argc_argv = {{ default .Env.PHP_REGISTER_ARGC_ARGV "Off" }}
+request_order = "{{ default .Env.PHP_REQUEST_ORDER "GP" }}"
+
+;   Development Value: Off
+;   Production Value: Off
+short_open_tag = {{ default .Env.PHP_SHORT_OPEN_TAG "On" }}
+
+variables_order = {{ default .Env.PHP_VARIABLES_ORDER "EGPCS" }}
+
+user_ini.filename =
+engine = Off
+short_open_tag = Off
+precision = {{ default .Env.PHP_PRECISION "14" }}
+
+; On = Enabled and buffer is unlimited. (Use with caution)
+; Off = Disabled
+; Integer = Enables the buffer and sets its maximum size in bytes.
+; Development Value: 4096
+; Production Value: 4096
+output_buffering = {{ default .Env.PHP_OUTPUT_BUFFERING "4096" }}
+
+;output_handler =
+;url_rewriter.tags
+;url_rewriter.hosts
+zlib.output_compression = {{ default .Env.PHP_ZLIB_OUTPUT_COMPRESSION "Off" }}
+zlib.output_compression_level = {{ default .Env.PHP_ZLIB_OUTPUT_COMPRESSION_LEVEL "-1" }}
+
+implicit_flush = {{ default .Env.PHP_IMPLICIT_FLUSH "Off" }}
+unserialize_callback_func =
+serialize_precision = {{ default .Env.PHP_SERIALIZE_PRECISION "-1" }}
+
+;open_basedir = /var/www
+
+disable_functions = {{ default .Env.PHP_DISABLE_FUNCTIONS "pcntl_alarm,pcntl_fork,pcntl_waitpid,pcntl_wait,pcntl_wifexited,pcntl_wifstopped,pcntl_wifsignaled,pcntl_wifcontinued,pcntl_wexitstatus,pcntl_wtermsig,pcntl_wstopsig,pcntl_signal,pcntl_signal_get_handler,pcntl_signal_dispatch,pcntl_get_last_error,pcntl_strerror,pcntl_sigprocmask,pcntl_sigwaitinfo,pcntl_sigtimedwait,pcntl_exec,pcntl_getpriority,pcntl_setpriority,pcntl_async_signals," }}
+disable_classes = {{ default .Env.PHP_DISABLE_CLASSES "" }}
+
+;highlight.string  = #DD0000
+;highlight.comment = #FF9900
+;highlight.keyword = #007700
+;highlight.default = #0000BB
+;highlight.html    = #000000
+
+ignore_user_abort = {{ default .Env.PHP_IGNORE_USER_ABORT "Off" }}
+realpath_cache_size = {{ default .Env.PHP_REALPATH_CACHE_SIZE "4096k" }}
+realpath_cache_ttl = {{ default .Env.PHP_REALPATH_CACHE_TTL "120" }}
+
+zend.enable_gc = {{ default .Env.PHP_ZEND_ENABLE_GC "On" }}
+zend.multibyte = {{ default .Env.PHP_ZEND_MULTIBYTE "Off" }}
+zend.script_encoding = "{{ default .Env.PHP_ZEND_SCRIPT_ENCODING "" }}"
+
+expose_php = Off
+max_execution_time = {{ default .Env.PHP_MAX_EXECUTION_TIME "30" }}
+max_input_time = {{ default .Env.PHP_MAX_INPUT_TIME "60" }}
+max_input_nesting_level = {{ default .Env.PHP_MAX_INPUT_NESTING_LEVEL "64" }}
+max_input_vars = {{ default .Env.PHP_MAX_INPUT_VARS "1000" }}
+
+memory_limit = {{ default .Env.PHP_MEMORY_LIMIT "128M" }}
+
+log_errors_max_len = {{ default .Env.PHP_LOG_ERRORS_MAX_LEN "1024" }}
+ignore_repeated_errors = {{ default .Env.PHP_IGNORE_REPEATED_ERRORS "Off" }}
+ignore_repeated_source = {{ default .Env.PHP_IGNORE_REPEATED_SOURCE "Off" }}
+
+report_memleaks = {{ default .Env.PHP_REPORT_MEMLEAKS "On" }}
+report_zend_debug = {{ default .Env.PHP_REPORT_ZEND_DEBUG "0" }}
+;xmlrpc_errors = 0
+;xmlrpc_error_number = 0
+;docref_root = "/phpmanual/"
+;docref_ext = .html
+;error_prepend_string = "<span style='color: #ff0000'>"
+;error_append_string = "</span>"
+error_log = /dev/stdout
+
+;arg_separator.output = "&amp;"
+;arg_separator.input = ";&"
+
+auto_globals_jit = {{ default .Env.PHP_AUTO_GLOBALS_JIT "On" }}
+enable_post_data_reading = {{ default .Env.PHP_ENABLE_POST_DATA_READING "On" }}
+post_max_size = {{ default .Env.PHP_POST_MAX_SIZE "20M" }}
+
+auto_prepend_file =
+auto_append_file =
+
+default_mimetype = "{{ default .Env.PHP_DEFAULT_MIMETYPE "text/html" }}"
+default_charset = "{{ default .Env.PHP_DEFAULT_CHARSET "UTF-8" }}"
+
+;internal_encoding =
+;input_encoding =
+;output_encoding =
+
+;include_path = ".:/usr/share/php"
+doc_root =
+user_dir =
+; extension_dir = "./"
+; sys_temp_dir = "/tmp"
+enable_dl = {{ default .Env.PHP_ENABLE_DL "Off" }}
+
+cgi.force_redirect = {{ default .Env.PHP_CGI_FORCE_REDIRECT "1" }}
+cgi.nph = {{ default .Env.PHP_CGI_NPH "0" }}
+;cgi.redirect_status_env =
+cgi.fix_pathinfo = {{ default .Env.PHP_CGI_FIX_PATHINFO "1" }}
+;cgi.discard_path = 1
+
+fastcgi.logging = {{ default .Env.PHP_FASTCGI_LOGGING "1" }}
+
+;cgi.rfc2616_headers = 0
+;cgi.check_shebang_line=1
+
+file_uploads = {{ default .Env.PHP_FILE_UPLOADS "On" }}
+;upload_tmp_dir =
+upload_max_filesize = {{ default .Env.PHP_UPLOAD_MAX_FILESIZE "20M" }}
+max_file_uploads = {{ default .Env.PHP_MAX_FILE_UPLOADS "20" }}
+
+allow_url_fopen = {{ default .Env.PHP_ALLOW_URL_FOPEN "On" }}
+allow_url_include = {{ default .Env.PHP_ALLOW_URL_INCLUDE "Off" }}
+
+user_agent = "{{ default .Env.PHP_USER_AGENT "PHP" }}"
+default_socket_timeout = {{ default .Env.PHP_DEFAULT_SOCKET_TIMEOUT "60" }}
+
+auto_detect_line_endings = {{ default .Env.PHP_AUTO_DETECT_LINE_ENDINGS "Off" }}
+
+[CLI Server]
+cli_server.color = {{ default .Env.PHP_CLI_SERVER_COLOR "On" }}
+
+[Pdo]
+pdo_odbc.connection_pooling = {{ default .Env.PHP_PDO_ODBC_CONNECTION_POOLING "strict" }}
+
+
+[Pdo_mysql]
+pdo_mysql.cache_size = {{ default .Env.PHP_PDO_MYSQL_CACHE_SIZE "2000" }}
+pdo_mysql.default_socket=
+
+[mail function]
+smtp_port = 25
+
+;sendmail_path =
+;mail.force_extra_parameters =
+mail.log = /dev/stdout
+
+[ODBC]
+odbc.allow_persistent = {{ default .Env.PHP_ODBC_ALLOW_PERSISTENT "On" }}
+odbc.check_persistent = {{ default .Env.PHP_ODBC_CHECK_PERSISTENT "On" }}
+odbc.max_persistent = {{ default .Env.PHP_ODBC_MAX_PERSISTENT "-1" }}
+odbc.max_links = {{ default .Env.PHP_ODBC_MAX_LINKS "-1" }}
+odbc.defaultlrl = {{ default .Env.PHP_ODBC_DEFAULTLRL "4096" }}
+odbc.defaultbinmode = {{ default .Env.PHP_ODBC_DEFAULTBINMODE "1" }}
+
+[Interbase]
+ibase.allow_persistent = 1
+ibase.max_persistent = -1
+ibase.max_links = -1
+;ibase.default_db =
+;ibase.default_user =
+;ibase.default_password =
+;ibase.default_charset =
+ibase.timestampformat = "%Y-%m-%d %H:%M:%S"
+ibase.dateformat = "%Y-%m-%d"
+ibase.timeformat = "%H:%M:%S"
+
+[MySQLi]
+mysqli.max_persistent = {{ default .Env.PHP_MYSQLI_MAX_PERSISTENT "-1" }}
+mysqli.allow_local_infile = {{ default .Env.PHP_MYSQLI_ALLOW_LOCAL_INFILE "On" }}
+mysqli.allow_persistent = {{ default .Env.PHP_MYSQLI_ALLOW_PERSISTENT "On" }}
+mysqli.max_links = {{ default .Env.PHP_MYSQLI_MAX_LINKS "-1" }}
+mysqli.cache_size = {{ default .Env.PHP_MYSQLI_CACHE_SIZE "2000" }}
+mysqli.default_port = 3306
+mysqli.default_socket = 
+mysqli.default_host =
+mysqli.default_user =
+mysqli.default_pw =
+mysqli.reconnect = {{ default .Env.PHP_MYSQLI_RECONNECT "Off" }}
+
+[mysqlnd]
+mysqlnd.collect_statistics = {{ default .Env.PHP_MYSQLND_COLLECT_STATISTICS "On" }}
+mysqlnd.collect_memory_statistics = {{ default .Env.PHP_MYSQLND_COLLECT_MEMORY_STATISTICS "Off" }}
+mysqlnd.debug = {{ default .Env.PHP_MYSQLND_DEBUG "" }}
+mysqlnd.log_mask = {{ default .Env.PHP_MYSQLND_LOG_MASK "0" }}
+mysqlnd.mempool_default_size = {{ default .Env.PHP_MYSQLND_MEMPOOL_DEFAULT_SIZE "16000" }}
+mysqlnd.net_cmd_buffer_size = {{ default .Env.PHP_MYSQLND_NET_CMD_BUFFER_SIZE "2048" }}
+mysqlnd.net_read_buffer_size = {{ default .Env.PHP_MYSQLND_NET_READ_BUFFER_SIZE "32768" }}
+mysqlnd.net_read_timeout = {{ default .Env.PHP_MYSQLND_NET_READ_TIMEOUT "31536000" }}
+
+[PostgreSQL]
+pgsql.allow_persistent = {{ default .Env.PHP_PGSQL_ALLOW_PERSISTENT "On" }}
+pgsql.auto_reset_persistent = {{ default .Env.PHP_PGSQL_AUTO_RESET_PERSISTENT "Off" }}
+pgsql.max_persistent = {{ default .Env.PHP_PGSQL_MAX_PERSISTENT "-1" }}
+pgsql.max_links = {{ default .Env.PHP_PGSQL_MAX_LINKS "-1" }}
+pgsql.ignore_notice = {{ default .Env.PHP_PGSQL_IGNORE_NOTICE "0" }}
+pgsql.log_notice = {{ default .Env.PHP_PGSQL_LOG_NOTICE "0" }}
+
+[bcmath]
+bcmath.scale = {{ default .Env.PHP_BCMATH_SCALE "0" }}
+
+[Session]
+session.save_handler = {{ default .Env.PHP_SESSION_SAVE_HANDLER "files" }}
+
+;session.save_path = "/var/lib/php/sessions"
+session.use_strict_mode = {{ default .Env.PHP_SESSION_USE_STRICT_MODE "0" }}
+session.use_cookies = {{ default .Env.PHP_SESSION_USE_COOKIES "1" }}
+session.cookie_secure = {{ default .Env.PHP_SESSION_COOKIE_SECURE "" }}
+session.use_only_cookies = {{ default .Env.PHP_SESSION_USE_ONLY_COOKIES "1" }}
+session.name = {{ default .Env.PHP_SESSION_NAME "PHPSESSID" }}
+session.auto_start = {{ default .Env.PHP_SESSION_AUTO_START "0" }}
+session.cookie_lifetime = {{ default .Env.PHP_SESSION_COOKIE_LIFETIME "0" }}
+session.cookie_path = {{ default .Env.PHP_SESSION_COOKIE_PATH "/" }}
+session.cookie_domain = {{ default .Env.PHP_SESSION_COOKIE_DOMAIN "" }}
+session.cookie_httponly = {{ default .Env.PHP_SESSION_COOKIE_HTTPONLY "" }}
+session.serialize_handler = {{ default .Env.PHP_SESSION_SERIALIZE_HANDLER "php" }}
+session.gc_probability = {{ default .Env.PHP_SESSION_GC_PROBABILITY "0" }}
+session.gc_divisor = {{ default .Env.PHP_SESSION_GC_DIVISOR "100" }}
+session.gc_maxlifetime = {{ default .Env.PHP_SESSION_GC_MAXLIFETIME "1440" }}
+session.referer_check = {{ default .Env.PHP_SESSION_REFERER_CHECK "" }}
+session.cache_limiter = {{ default .Env.PHP_SESSION_CACHE_LIMITER "nocache" }}
+session.cache_expire = {{ default .Env.PHP_SESSION_CACHE_EXPIRE "180" }}
+session.use_trans_sid = {{ default .Env.PHP_SESSION_USE_TRANS_SID "0" }}
+session.sid_length = {{ default .Env.PHP_SESSION_SID_LENGTH "26" }}
+session.trans_sid_tags = "a=href,area=href,frame=src,form="
+session.sid_bits_per_character = {{ default .Env.PHP_SESSION_SID_BITS_PER_CHARACTER "4" }}
+session.upload_progress.enabled = {{ default .Env.PHP_SESSION_UPLOAD_PROGRESS_ENABLED "On" }}
+session.upload_progress.cleanup = {{ default .Env.PHP_SESSION_UPLOAD_PROGRESS_CLEANUP "On" }}
+session.upload_progress.prefix = "{{ default .Env.PHP_SESSION_UPLOAD_PROGRESS_PREFIX "upload_progress_" }}"
+session.upload_progress.name = "{{ default .Env.PHP_SESSION_UPLOAD_PROGRESS_NAME "PHP_SESSION_UPLOAD_PROGRESS" }}"
+session.upload_progress.freq = "{{ default .Env.PHP_SESSION_UPLOAD_PROGRESS_FREQ "1%" }}"
+session.upload_progress.min_freq = "{{ default .Env.PHP_SESSION_UPLOAD_PROGRESS_MIN_FREQ "1" }}"
+session.lazy_write = {{ default .Env.PHP_SESSION_LAZY_WRITE "On" }}
+
+[Assertion]
+zend.assertions = {{ default .Env.PHP_ZEND_ASSERTIONS "-1" }}
+assert.active = {{ default .Env.PHP_ASSERT_ACTIVE "On" }}
+assert.exception = {{ default .Env.PHP_ASSERT_EXCEPTION "On" }}
+assert.warning = {{ default .Env.PHP_ASSERT_EXCEPTION "On" }}
+assert.bail = {{ default .Env.PHP_ASSERT_BAIL "Off" }}
+assert.callback = {{ default .Env.PHP_ASSERT_BAIL "0" }}
+assert.quiet_eval = {{ default .Env.PHP_ASSERT_BAIL "0" }}
+
+[Tidy]
+tidy.clean_output = {{ default .Env.PHP_TIDY_CLEAN_OUTPUT "Off" }}
+
+[soap]
+soap.wsdl_cache_enabled = {{ default .Env.PHP_SOAP_WSDL_CACHE_ENABLED "1" }}
+soap.wsdl_cache_dir = "/tmp"
+soap.wsdl_cache_ttl = {{ default .Env.PHP_SOAP_WSDL_CACHE_TTL "86400" }}
+soap.wsdl_cache_limit = {{ default .Env.PHP_SOAP_WSDL_CACHE_LIMIT "5" }}
+
+[ldap]
+ldap.max_links = {{ default .Env.PHP_LDAP_MAX_LINKS "-1" }}
+
+[opcache]
+opcache.enable = {{ default .Env.PHP_OPCACHE_ENABLE "1" }}
+opcache.enable_cli = {{ default .Env.PHP_OPCACHE_CLI "0" }}
+opcache.memory_consumption = {{ default .Env.PHP_OPCACHE_MEMORY_CONSUMPTION "128" }}
+opcache.interned_strings_buffer = {{ default .Env.PHP_OPCACHE_INTERNED_STRINGS_BUFFER "8" }}
+opcache.max_accelerated_files = {{ default .Env.PHP_OPCACHE_MAX_ACCELERATED_FILES "10000" }}
+opcache.max_wasted_percentage = {{ default .Env.PHP_OPCACHE_MAX_WASTED_PERCENTAGE "5" }}
+opcache.use_cwd = {{ default .Env.PHP_OPCACHE_USE_CWD "1" }}
+opcache.validate_timestamps = {{ default .Env.PHP_OPCACHE_VALIDATE_TIMESTAMPS "1" }}
+opcache.revalidate_freq = {{ default .Env.PHP_OPCACHE_REVALIDATE_FREQ "2" }}
+opcache.revalidate_path = {{ default .Env.PHP_OPCACHE_REVALIDATE_PATH "0" }}
+;opcache.save_comments=1
+opcache.enable_file_override = {{ default .Env.PHP_OPCACHE_ENABLE_FILE_OVERRIDE "0" }}
+opcache.optimization_level = {{ default .Env.PHP_OPCACHE_OPTIMIZATION_LEVEL "0xffffffff" }}
+opcache.inherited_hack = {{ default .Env.PHP_OPCACHE_INHERIED_HACK "1" }}
+opcache.dups_fix = {{ default .Env.PHP_OPCACHE_DUPS_FIX "0" }}
+opcache.blacklist_filename = {{ default .Env.PHP_OPCACHE_BLACKLIST_FILENAME "" }}
+opcache.max_file_size = {{ default .Env.PHP_OPCACHE_MAX_FILE_SIZE "0" }}
+opcache.consistency_checks = {{ default .Env.PHP_OPCACHE_CONSISTENCY_CHECKS "0" }}
+opcache.force_restart_timeout = {{ default .Env.PHP_OPCACHE_FORCE_RESTART_TIMEOUT "180" }}
+;opcache.error_log=
+opcache.log_verbosity_level = {{ default .Env.PHP_OPCACHE_LOG_VERBOSITY_LEVEL "1" }}
+;opcache.preferred_memory_model=
+;opcache.protect_memory=0
+opcache.restrict_api = {{ default .Env.PHP_OPCACHE_RESTRICT_API "" }}
+opcache.file_cache = {{ default .Env.PHP_OPCACHE_FILE_CACHE "" }}
+opcache.file_cache_only = {{ default .Env.PHP_OPCACHE_FILE_CACHE_ONLY "0" }}
+opcache.file_cache_consistency_checks = {{ default .Env.PHP_OPCACHE_FILE_CACHE_CONSISTENCY_CHECKS "1" }}
+opcache.file_cache_fallback = {{ default .Env.PHP_OPCACHE_FILE_CACHE_FALLBACK "1" }}
+opcache.huge_code_pages = {{ default .Env.PHP_OPCACHE_HUGE_CODE_PAGES "0" }}
+opcache.validate_permission = {{ default .Env.PHP_OPCACHE_VALIDATE_PERMISSION "0" }}
+opcache.validate_root = {{ default .Env.PHP_OPCACHE_VALIDATE_ROOT "0" }}
+opcache.opt_debug_level = {{ default .Env.PHP_OPCACHE_OPT_DEBUG_LEVEL "0" }}

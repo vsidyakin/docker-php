@@ -1,0 +1,51 @@
+[www]
+user = www-data
+group = www-data
+{{ if isTrue (default .Env.FPM_LISTEN_SOCKET "false") }}
+listen = /run/php/php{{ .Env.PHP_VERSION }}-fpm.sock
+{{ else }}
+listen = 9000
+{{ end }}
+
+listen.owner = www-data
+listen.group = www-data
+listen.mode = {{ default .Env.FPM_LISTEN_MODE "0660" }}
+
+process.dumpable = {{ default .Env.FPM_PROCESS_DUMPABLE "no" }}
+
+; static / dynamic / ondemand
+pm = {{ default .Env.FPM_PM "dynamic" }}
+pm.max_children = {{ default .Env.FPM_PM_MAX_CHILDREN "5" }}
+; min_spare_servers + (max_spare_servers - min_spare_servers) / 2
+pm.start_servers = {{ default .Env.FPM_PM_START_SERVERS "2" }}
+pm.min_spare_servers = {{ default .Env.FPM_PM_MIN_SPARE_SERVERS "1" }}
+pm.max_spare_servers = {{ default .Env.FPM_PM_MAX_SPARE_SERVERS "3" }}
+pm.process_idle_timeout = {{ default .Env.FPM_PM_PROCESS_IDLE_TIMEOUT "10s" }}
+pm.max_requests = {{ default .Env.FPM_PM_MAX_REQUESTS "0" }}
+
+pm.status_path = /fpm-status
+ping.path = /fpm-ping
+ping.response = pong
+
+{{ if isTrue (default .Env.FPM_ACCESS_LOG "false") }}
+access.log = /dev/stdout
+access.format = "%R - %u %t \"%m %r%Q%q\" %s %f %{mili}d %{kilo}M %C%%"
+{{ end }}
+
+{{ if isTrue (default .Env.FPM_SLOWLOG "false") }}
+slowlog = /dev/stderr
+request_slowlog_timeout = {{ default .Env.FPM_REQUEST_SLOWLOG_TIMEOUT "0" }}
+request_slowlog_trace_depth = {{ default .Env.FPM_REQUEST_SLOWLOG_TRACE_DEPTH "20" }}
+request_terminate_timeout = {{ default .Env.FPM_REQUEST_TERMINATE_TIMEOUT "0" }}
+{{ end }}
+
+rlimit_files = {{ default .Env.FPM_RLIMIT_FILES "1024" }}
+rlimit_core = {{ default .Env.FPM_RLIMIT_CORE "0" }}
+;chroot =
+chdir = /var/www
+
+catch_workers_output = yes
+
+clear_env = {{ default .Env.FPM_CLEAR_ENV "yes" }}
+
+security.limit_extensions = .php .php3 .php4 .php5 .php7
