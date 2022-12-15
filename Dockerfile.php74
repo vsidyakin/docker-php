@@ -1,4 +1,4 @@
-FROM registry.digitalocean.com/dslk/base/ubuntu:20.04
+FROM vsyd/php:latest
 
 ARG PHP_VERSION=7.4
 
